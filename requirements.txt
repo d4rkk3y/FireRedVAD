@@ -1,5 +1,5 @@
 numpy==1.26.1
 kaldiio==2.18.0
-kaldi_native_fbank==1.15
+kaldi_native_fbank==1.17
 soundfile==0.12.1
 textgrid
