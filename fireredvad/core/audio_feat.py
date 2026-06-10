@@ -24,6 +24,11 @@ class AudioFeat:
             wav_np, sample_rate = sf.read(audio, dtype="int16")
         elif isinstance(audio, (list, tuple)):
             wav_np, sample_rate = audio
+            if wav_np.dtype != np.int16:
+                if np.issubdtype(wav_np.dtype, np.floating):
+                    wav_np = (wav_np * 32767).astype(np.int16)
+                else:
+                    wav_np = wav_np.astype(np.int16)
         else:
             wav_np = audio
             sample_rate = 16000
